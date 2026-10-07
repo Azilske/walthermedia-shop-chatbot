@@ -1,6 +1,9 @@
 // Express-Modul laden und in der Konstanten "express" speichern
 const express = require("express");
 
+// Health-Check-Router aus der Routendatei laden
+const healthCheckRouter = require("./routes/healthCheck");
+
 // Express-Anwendung erstellen und in der Konstanten "app" speichern
 const app = express();
 
@@ -17,3 +20,5 @@ app.listen(PORT, function() {
     console.log("Server läuft auf PORT 3000.");
 });
 
+// Health-Check-Router in die Express-Anwendung einbinden
+app.use(healthCheckRouter);
